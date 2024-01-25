@@ -1,5 +1,9 @@
 This is the Readme file
 
+SERVER RUNS ON PORT 7000 AND REACT FRONTED ON PORT 5000
+
+UPDATE CALLINGCHATGPT.JS FILE WITH YOUR OWN OPENAI API KEY OR THIS WONT WORK
+
 the way this project works is that the user query to generate graphs is sent to chatgpt which returns a sql query to extract data for the graph 
 
 the sql query is then run on the database to extract the data and the data is sent back to the front end
