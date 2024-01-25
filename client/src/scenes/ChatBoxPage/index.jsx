@@ -33,9 +33,9 @@ const ChatboxPage = () => {
     console.log(responseData);
 
     setGraphType(responseData.graphType);
-    setGraphData(responseData.data); 
-    setgraphneeded(responseData.graphneeded); 
-    setcalculationneeded(responseData.calculationneeded); 
+    setGraphData(responseData.data);
+    setgraphneeded(responseData.graphneeded);
+    setcalculationneeded(responseData.calculationneeded);
     setdbdata(responseData.data);
 
     if (graphneeded === true) {
@@ -54,10 +54,8 @@ const ChatboxPage = () => {
     const updatedChatHistory = [
       ...chatHistory,
       { role: "user", content: userQuery },
-      { role: "bot", content: JSON.stringify(responseData.data[0])  }, //JSON.stringify(responseData.data[0])
+      { role: "bot", content: JSON.stringify(responseData.data[0]) }, //JSON.stringify(responseData.data[0])
     ];
-
-    // // Update the graph type and data
 
     setChatHistory(updatedChatHistory);
     setUserQuery("");
@@ -68,7 +66,6 @@ const ChatboxPage = () => {
       handleUserQuery();
     }
   };
-
 
   return (
     <div
@@ -96,11 +93,10 @@ const ChatboxPage = () => {
           <LineChart data={graphData} />
         )}
 
-        
         {graphneeded == true && graphType == "bar" && (
           <BarChart data={graphData} />
         )}
-        
+
         {graphneeded == true && graphType == "pie" && (
           <PieChart data={graphData} />
         )}
