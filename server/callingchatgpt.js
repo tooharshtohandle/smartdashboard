@@ -1,7 +1,7 @@
 const OpenAI = require("openai");
 
 const openai = new OpenAI({
-  apiKey: "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"
+  apiKey: "" //use a OpenAi API key 
 });
 
 const dbfields=""
@@ -9,7 +9,7 @@ const getChatGPTResponse = async (query) => {
   try {
     const chatCompletion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
-      messages: [{"role":"system","content":"you are working with a mysql table called dell with fields { Srno INT, OrderType VARCHAR(10),PRODUCT_ID VARCHAR(20),PRODUCT_PurchasingPrice INT,P_CostPrice INT,P_SellingPrice INT,order_qty INT,Total_CP_SP INT,InventoryCountattheinstantof_placing_order INT,Supplier_id VARCHAR(20),Order_id VARCHAR(20),IsLateDeliveryBecauseOfStockOut VARCHAR(10),CostsOfGoodsSold INT,DOI INT,CountOfInventoryAFTER INT,valueofinv INT,OrderPlacedON DATE,PromisedDelDate DATE,ActualDelDate DATE,DelStatus VARCHAR(20),OFR_SOT VARCHAR(10),Satisfied VARCHAR(5),WhenWereSoldGoodsDeliveredBySupplier DATE}" },
+      messages: [{"role":"system","content":"you are working with a mysql table called dell with fields { Srno INT, OrderType VARCHAR(10),PRODUCT_ID VARCHAR(20),PRODUCT_PurchasingPrice INT,P_CostPrice INT,P_SellingPrice INT,order_qty INT,Total_CP_SP INT,InventoryCountattheinstantof_placing_order INT,Supplier_id VARCHAR(20),Order_id VARCHAR(20),IsLateDeliveryBecauseOfStockOut VARCHAR(10),CostsOfGoodsSold INT,DOI INT,CountOfInventoryAFTER INT,valueofinv INT,OrderPlacedON DATE,PromisedDelDate DATE,ActualDelDate DATE,DelStatus VARCHAR(20),OFR_SOT VARCHAR(10),Satisfied VARCHAR(5),WhenWereSoldGoodsDeliveredBySupplier DATE}" }, //columns about the data table
         {"role":"system","content":"you help run an interactive supply chain dashboard, you may or may not have to generate a sql query to extract data from a database, and this sql query may or may not be required to generate a graph"},
         {"role":"system","content":"Minimum values are [1,(Min OrderType value),'P_001',100,120,150,1,6240,0,'S_001','S_1','No',120,0,50,6120,'1/1/2018','1/10/2018','1/6/2018','Early Delivery','No','No','1/6/2018']"},
         {"role":"system","content":"Maximum values are [38390, (Max OrderType value),'P_025',2500,3000,3750,200,497500,274,'S_025','C_38390','Yes',75000,343,274,816000,'12/15/2018','12/27/2018','12/30/2018','Late Delivery','Yes','Yes','1/16/2018']"},

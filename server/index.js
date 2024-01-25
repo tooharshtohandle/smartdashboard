@@ -8,7 +8,7 @@ const { executeQuery } = require('./dbdataextraction');
 
 const app = express();
 app.use(cors());
-const PORT = 7000;
+const PORT = 7000; 
 
 app.use(bodyParser.json());
 

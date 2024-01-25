@@ -54,7 +54,7 @@ const ChatboxPage = () => {
     const updatedChatHistory = [
       ...chatHistory,
       { role: "user", content: userQuery },
-      { role: "bot", content: JSON.stringify(responseData.data[0]) }, //JSON.stringify(responseData.data[0])
+      { role: "bot", content: JSON.stringify(responseData.data[0]) }, 
     ];
 
     setChatHistory(updatedChatHistory);
