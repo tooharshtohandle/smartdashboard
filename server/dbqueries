@@ -1,0 +1,114 @@
+CREATE TABLE dell (
+    Srno INT,
+    OrderType VARCHAR(10),
+    PRODUCT_ID VARCHAR(20),
+    PRODUCT_PurchasingPrice INT,
+    P_CostPrice INT,
+    P_SellingPrice INT,
+    order_qty INT,
+    Total_CP_SP INT,
+    InventoryCountattheinstantof_placing_order INT,
+    Supplier_id VARCHAR(20),
+    Order_id VARCHAR(20),
+    IsLateDeliveryBecauseOfStockOut VARCHAR(10),
+    CostsOfGoodsSold INT,
+    DOI INT,
+    CountOfInventoryAFTER INT,
+    valueofinv INT,
+    OrderPlacedON DATE,
+    PromisedDelDate DATE,
+    ActualDelDate DATE,
+    DelStatus VARCHAR(20),
+    OFR_SOT VARCHAR(10),
+    Satisfied VARCHAR(5),
+    WhenWereSoldGoodsDeliveredBySupplier DATE
+);
+
+
+DESCRIBE dell;
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/DELLDATAENTRY.csv'
+INTO TABLE DELLFIRST.dell
+FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+LINES TERMINATED BY '\r\n'
+IGNORE 1 ROWS
+(@Srno, @OrderType, @PRODUCT_ID, @PRODUCT_PurchasingPrice, @P_CostPrice, @P_SellingPrice, @order_qty, @Total_CP_SP, @InventoryCountattheinstantof_placing_order, @Supplier_id, @Order_id, @IsLateDeliveryBecauseOfStockOut, @CostsOfGoodsSold, @DOI, @CountOfInventoryAFTER, @valueofinv, @OrderPlacedON, @PromisedDelDate, @ActualDelDate, @DelStatus, @OFR_SOT, @Satisfied, @WhenWereSoldGoodsDeliveredBySupplier)
+SET
+    Srno = NULLIF(@Srno, ''),
+    OrderType = NULLIF(@OrderType, ''),
+    PRODUCT_ID = NULLIF(@PRODUCT_ID, ''),
+    PRODUCT_PurchasingPrice = NULLIF(@PRODUCT_PurchasingPrice, ''),
+    P_CostPrice = NULLIF(@P_CostPrice, ''),
+    P_SellingPrice = NULLIF(@P_SellingPrice, ''),
+    order_qty = NULLIF(@order_qty, ''),
+    Total_CP_SP = NULLIF(@Total_CP_SP, ''),
+    InventoryCountattheinstantof_placing_order = NULLIF(@InventoryCountattheinstantof_placing_order, ''),
+    Supplier_id = NULLIF(@Supplier_id, ''),
+    Order_id = NULLIF(@Order_id, ''),
+    IsLateDeliveryBecauseOfStockOut = NULLIF(@IsLateDeliveryBecauseOfStockOut, ''),
+    CostsOfGoodsSold = NULLIF(@CostsOfGoodsSold, ''),
+    DOI = NULLIF(@DOI, ''),
+    CountOfInventoryAFTER = NULLIF(@CountOfInventoryAFTER, ''),
+    valueofinv = NULLIF(@valueofinv, ''),
+    OrderPlacedON = STR_TO_DATE(NULLIF(@OrderPlacedON, ''), '%d-%m-%Y'),
+    PromisedDelDate = STR_TO_DATE(NULLIF(@PromisedDelDate, ''), '%d-%m-%Y'),
+    ActualDelDate = STR_TO_DATE(NULLIF(@ActualDelDate, ''), '%d-%m-%Y'),
+    DelStatus = NULLIF(@DelStatus, ''),
+    OFR_SOT = NULLIF(@OFR_SOT, ''),
+    Satisfied = NULLIF(@Satisfied, ''),
+    WhenWereSoldGoodsDeliveredBySupplier = STR_TO_DATE(NULLIF(@WhenWereSoldGoodsDeliveredBySupplier, ''), '%d-%m-%Y');
+
+
+
+Srno INT, OrderType VARCHAR(10),PRODUCT_ID VARCHAR(20),PRODUCT_PurchasingPrice INT,P_CostPrice INT,P_SellingPrice INT,order_qty INT,Total_CP_SP INT,InventoryCountattheinstantof_placing_order INT,Supplier_id VARCHAR(20),Order_id VARCHAR(20),IsLateDeliveryBecauseOfStockOut VARCHAR(10),CostsOfGoodsSold INT,DOI INT,CountOfInventoryAFTER INT,valueofinv INT,OrderPlacedON DATE,PromisedDelDate DATE,ActualDelDate DATE,DelStatus VARCHAR(20),OFR_SOT VARCHAR(10),Satisfied VARCHAR(5),WhenWereSoldGoodsDeliveredBySupplier DATE
+
+    
+
+Database Information:
+
+Min Values:
+- Sr. No.: 1
+- OrderType: (Min OrderType value)
+- PRODUCT_ID: P_001
+- PRODUCT_PurchasingPrice: 100
+- P_CostPrice: 120
+- P_SellingPrice: 150
+- order qty: 1
+- Total CP/SP: 6240
+- InventoryCount at the instant of placing order: 0
+- Supplier_id: S_001
+- Order_id: S_1
+- IsLateDeliveryBecauseOfStockOut: No
+- CostsOfGoodsSold: 120
+- D.O.I: 0
+- CountOfInventory AFTER: 50
+- ValueOfInventory: 6120
+- OrderPlacedON: 1/1/2018
+- PromisedDelDate: 1/10/2018
+- ActualDelDate: 1/6/2018
+- DelStatus: Early Delivery
+- OFR/SOT: No
+- Satisfied: No
+- WhenWereSoldGoodsDeliveredBySupplier: 1/6/2018
+
+Database Information:
+
+Max Values:
+- Sr. No.: 38390
+- OrderType: (Max OrderType value)
+- PRODUCT_ID: P_025
+- PRODUCT_PurchasingPrice: 2500
+- P_CostPrice: 3000
+- P_SellingPrice: 3750
+- order qty: 200
+- Total CP/SP: 497500
+- InventoryCount at the instant of placing order: 274
+- Supplier_id: S_025
+- Order_id: C_38390
+- IsLateDeliveryBecauseOfStockOut: Yes
+- CostsOfGoodsSold: 75000
+- D.O.I:343,CountOfInventoryAFTER:274,ValueOfInventory: 816000,OrderPlacedON: 12/15/2018,PromisedDelDate: 12/27/2018,ActualDelDate: 12/30/2018,DelStatus: Late Delivery,OFR/SOT:Yes,Satisfied:Yes,WhenWereSoldGoodsDeliveredBySupplier:1/16/2018
+
+
+Minimum values are [1, (Min OrderType value), "P_001", 100, 120, 150, 1, 6240, 0, "S_001", "S_1", "No", 120, 0, 50, 6120, "1/1/2018", "1/10/2018", "1/6/2018", "Early Delivery", "No", "No", "1/6/2018"]
+Maximum values are [38390, (Max OrderType value), "P_025", 2500, 3000, 3750, 200, 497500, 274, "S_025", "C_38390", "Yes", 75000, 343, 274, 816000, "12/15/2018", "12/27/2018", "12/30/2018", "Late Delivery", "Yes", "Yes", "1/16/2018"]

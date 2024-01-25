@@ -1,0 +1,8 @@
+//const dataForBarChart = [{ id: "Category 1", element1: element1_value, element2:element2_value,... },{ id: "Category 2", element1: element1_value, element2:element2_value,...},{ id: "Category 3", element1: element1_value, element2:element2_value,...},...];
+
+ // [{id:'element1',value:element1_value},{id:'element2',value:element2_value,},{id:'element3',value:element3_value,},...];
+
+ //[{id: "Element1",data: [{x:xaxis_value1,y: 101,},{x:xaxis_value2,y: 75,},{x:xaxis_value3,y: 36,},],},{id: "Element2",data:[{x:xaxis_value1,y: 212,},{x:xaxis_value2,y: 190,},{x:xaxis_value3,y: 270,},],},];
+
+
+ //SELECT 'P_013' AS id, JSON_ARRAYAGG(JSON_OBJECT('x', DATE(OrderPlacedON), 'y', AVG(P_CostPrice))) AS data FROM dell WHERE PRODUCT_ID = 'P_013' AND DATE(OrderPlacedON) BETWEEN '2018-01-01' AND '2018-01-03' GROUP BY DATE(OrderPlacedON) UNION SELECT 'P_015' AS id, JSON_ARRAYAGG(JSON_OBJECT('x', DATE(OrderPlacedON), 'y', AVG(P_CostPrice))) AS data FROM dell WHERE PRODUCT_ID = 'P_015' AND DATE(OrderPlacedON) BETWEEN '2018-01-01' AND '2018-01-03' GROUP BY DATE(OrderPlacedON) UNION SELECT 'P_016' AS id, JSON_ARRAYAGG(JSON_OBJECT('x', DATE(OrderPlacedON), 'y', AVG(P_CostPrice))) AS data FROM dell WHERE PRODUCT_ID = 'P_016' AND DATE(OrderPlacedON) BETWEEN '2018-01-01' AND '2018-01-03' GROUP BY DATE(OrderPlacedON);
